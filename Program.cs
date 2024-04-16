@@ -40,6 +40,15 @@ while (true)
                 if (selectedBlog == null)
                 {
                     Console.WriteLine("Blog not found");
+                    break;
+                }
+                Console.Write("Enter the title of the Post: ");
+                var postTitle = Console.ReadLine();
+                Console.Write("Enter the content of the Post: ");
+                var postContent = Console.ReadLine();
+                var newPost = new Post { Title = postTitle, Content = postContent, BlogId = selectedBlog.BlogId };
+                db.Add(newPost);
+                db.SaveChanges();
                 break;
             case "4":
                 Console.Write("Enter the name of the Blog you want to view posts from: ");
