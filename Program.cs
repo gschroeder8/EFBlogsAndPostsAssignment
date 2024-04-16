@@ -19,7 +19,7 @@ while (true)
         switch (userOption)
         {
             case "1":
-             var query = db.Blogs.OrderBy(b => b.Name);
+                var query = db.Blogs.OrderBy(b => b.Name);
                 Console.WriteLine("All blogs in the database:");
                 foreach (var item in query)
                 {
@@ -27,13 +27,19 @@ while (true)
                 }
                 break;
             case "2":
-              Console.Write("Enter a name for a new Blog: ");
+                Console.Write("Enter a name for a new Blog: ");
                 var name = Console.ReadLine();
                 var blog = new Blog { Name = name };
                 db.Add(blog);
                 db.SaveChanges();
                 break;
             case "3":
+                Console.Write("Enter the name of the Blog you want to post to: ");
+                var blogName = Console.ReadLine();
+                var selectedBlog = db.Blogs.FirstOrDefault(b => b.Name == blogName);
+                if (selectedBlog == null)
+                {
+                    Console.WriteLine("Blog not found");
                 break;
             case "4":
                 break;
