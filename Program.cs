@@ -27,6 +27,11 @@ while (true)
                 }
                 break;
             case "2":
+              Console.Write("Enter a name for a new Blog: ");
+                var name = Console.ReadLine();
+                var blog = new Blog { Name = name };
+                db.Add(blog);
+                db.SaveChanges();
                 break;
             case "3":
                 break;
