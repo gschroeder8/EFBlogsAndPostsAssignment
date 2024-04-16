@@ -1,0 +1,4 @@
+*.sql
+.vscode
+bin
+obj
