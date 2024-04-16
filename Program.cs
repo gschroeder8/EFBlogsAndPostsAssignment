@@ -10,10 +10,16 @@ while (true)
     Console.WriteLine("2. Add Blog");
     Console.WriteLine("3. Create Post");
     Console.WriteLine("4. Display Posts");
+    Console.WriteLine("enter x to exit\n");
     Console.WriteLine("Enter your option:");
 
     var userOption = Console.ReadLine();
 
+    if (userOption.ToLower() == "x")
+    {
+        break;
+    }
+    
     try
     {
         switch (userOption)
