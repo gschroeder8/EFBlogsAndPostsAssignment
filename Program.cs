@@ -19,6 +19,12 @@ while (true)
         switch (userOption)
         {
             case "1":
+             var query = db.Blogs.OrderBy(b => b.Name);
+                Console.WriteLine("All blogs in the database:");
+                foreach (var item in query)
+                {
+                    Console.WriteLine(item.Name);
+                }
                 break;
             case "2":
                 break;
