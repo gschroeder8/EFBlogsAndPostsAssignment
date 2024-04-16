@@ -42,6 +42,20 @@ while (true)
                     Console.WriteLine("Blog not found");
                 break;
             case "4":
+                Console.Write("Enter the name of the Blog you want to view posts from: ");
+                var blogToView = Console.ReadLine();
+                var chosenBlog = db.Blogs.FirstOrDefault(b => b.Name == blogToView);
+                if (chosenBlog == null)
+                {
+                    Console.WriteLine("Blog not found");
+                    break;
+                }
+                var posts = db.Posts.Where(p => p.BlogId == chosenBlog.BlogId);
+                Console.WriteLine($"Posts from {chosenBlog.Name}:");
+                foreach (var post in posts)
+                {
+                    Console.WriteLine($"Title: {post.Title}, Content: {post.Content}");
+                }
                 break;
             default:
                 Console.WriteLine("Invalid option");
